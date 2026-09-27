@@ -1,5 +1,5 @@
 locals {
   environment     = "dev"
-  modules_version = "1.0.0"
+  modules_version = "v1.0.0"
 }
 
