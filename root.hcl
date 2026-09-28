@@ -1,16 +1,15 @@
-	locals {
+locals {
   account_vars = read_terragrunt_config(find_in_parent_folders("account.hcl"))
+  global_vars  = read_terragrunt_config(find_in_parent_folders("global.hcl"))
   env_vars     = read_terragrunt_config(find_in_parent_folders("env.hcl"))
   region_vars  = read_terragrunt_config(find_in_parent_folders("region.hcl"))
 
-  aws_account = local.account_vars.locals.aws_account
-  environment = local.env_vars.locals.environment
-  aws_region  = local.region_vars.locals.aws_region
-
-  modules_path = get_env("MODULES_PATH", "${get_parent_terragrunt_dir()}/../infra-modules")
-  modules_repo = "git::git@github.com:vlebediev/terraform-task.git"
+  aws_account     = local.account_vars.locals.aws_account
+  environment     = local.env_vars.locals.environment
+  aws_region      = local.region_vars.locals.aws_region
+  domain          = local.global_vars.locals.domain
   modules_version = local.env_vars.locals.modules_version
-  domain = "vlebediev.romexsoft.net"
+  modules_repo    = "git::git@github.com:vlebediev/terraform-task.git"
 }
 
 remote_state {
