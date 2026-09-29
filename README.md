@@ -58,7 +58,7 @@ Tear everything down (RDS bills by the hour — don't leave it running):
 
 The module version an environment uses is set in env.hcl:
 
-    modules_version = "v1.0.0"
+    tf_module_version = "v1.0.0"
 
 That is a git tag in the terraform-task repo. Push a new tag there, change this line,
 re-plan. dev and prod can sit on different versions.

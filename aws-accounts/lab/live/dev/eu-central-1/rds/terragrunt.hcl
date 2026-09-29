@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "${include.root.locals.modules_repo}//modules/rds?ref=${include.root.locals.modules_version}"
+  source = "${include.root.locals.modules_repo}//modules/rds?ref=${include.root.locals.tf_module_version}"
 }
 
 dependency "vpc" {

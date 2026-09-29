@@ -3,8 +3,8 @@ include "root" {
   expose = true
 }
 terraform {
-  source = "${include.root.locals.modules_repo}//modules/vpc?ref=${include.root.locals.modules_version}"
-}
+  source = "${include.root.locals.modules_repo}//modules/vpc?ref=${include.root.locals.tf_module_version}"
+  }
 inputs = {
   vpc_name        = "vlebediev-tg-vpc"
   vpc_cidr        = "10.20.0.0/16"

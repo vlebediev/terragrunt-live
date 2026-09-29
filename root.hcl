@@ -8,8 +8,10 @@ locals {
   environment     = local.env_vars.locals.environment
   aws_region      = local.region_vars.locals.aws_region
   domain          = local.global_vars.locals.domain
-  modules_version = local.env_vars.locals.modules_version
+  tf_module_version = local.global_vars.locals.tf_module_version
   modules_repo    = "git::git@github.com:vlebediev/terraform-task.git"
+#  modules_repo = "../../../../../../terraform-task//"
+
 }
 
 remote_state {
