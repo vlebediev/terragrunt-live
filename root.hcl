@@ -11,6 +11,7 @@ locals {
   tf_module_version = local.global_vars.locals.tf_module_version
   modules_repo    = "git::git@github.com:vlebediev/terraform-task.git"
 #  modules_repo = "../../../../../../terraform-task//"
+  creator = local.global_vars.locals.creator
 
 }
 
@@ -39,6 +40,7 @@ provider "aws" {
   default_tags {
     tags = {
       Environment = "${local.environment}"
+      Creator     = "${local.creator}"
       ManagedBy   = "terragrunt"
     }
   }

@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "${include.root.locals.modules_repo}//modules/wordpress?ref=${include.root.locals.tf_module_version}"
+  source = "${include.root.locals.modules_repo}//modules/wordpress?ref=${include.root.locals.modules_version}"
 }
 
 dependency "vpc" {
@@ -28,7 +28,5 @@ inputs = {
   vpc_id      = dependency.vpc.outputs.vpc_id
   subnet_id   = dependency.vpc.outputs.public_subnet_ids[0]
   aws_region  = "eu-central-1"
-  enable_eip  = true
-  domain_name = include.root.locals.domain
-  zone_name   = include.root.locals.domain
+  enable_eip  = false
 }
